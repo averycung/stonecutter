@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Button from './components/Button';
+import Landing from './components/Landing';
 import { useDarkMode } from './components/ThemeProvider';
 
 
