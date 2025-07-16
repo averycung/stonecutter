@@ -3,12 +3,13 @@ import {auth} from "../../firebase/firebaseConfig";
 const AuthContext = React.createContext();
 
 export function AuthProvider({ children }) {
-    const [user, setUser] = React.useState(null);
+    const [currentUser, setCurrentUser] = React.useState(null);
     const [userLoggedIn, setUserLoggedIn] = React.useState(false);
     const [loading, setLoading] = React.useState(true);
 
     useEffect(() =>{
-        const unsubscirbe = onAuthStateChanged(auth, initializeUser);
+        const unsubscribe = onAuthStateChanged(auth, initializeUser);
+        return unsubscribe;
     }, [])
 
     async function initializeUser(user){
