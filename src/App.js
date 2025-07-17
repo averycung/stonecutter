@@ -11,7 +11,7 @@ function App() {
   return (
     <div className={darkMode ? 'dark min-h-screen bg-stone-800' : 'light min-h-screen'}>
       <Header/>
-      <Button/>
+      <Landing/>
     </div>
   )
 }
