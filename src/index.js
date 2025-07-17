@@ -5,15 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { DarkModeProvider } from './components/ThemeProvider';
 import { AuthProvider } from './contexts/authContext';
+import { BrowserRouter} from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-    <DarkModeProvider>
-      <App />
-    </DarkModeProvider>
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <DarkModeProvider>
+          <App />
+        </DarkModeProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

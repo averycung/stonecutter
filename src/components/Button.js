@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
+import Header from './Header'
+import { useNavigate } from 'react-router-dom'
 
 const Button = () => {
 
+    const navigate = useNavigate()
+
+    const handlenav = () =>{
+        navigate('/')
+    }
     const [goonCount, setGoonCount] = useState(0)
 
     const addGoonClick = () => {
@@ -31,7 +38,9 @@ const Button = () => {
     }
     
   return (
-    <div>
+    <>
+    <Header />
+    <div className='my-28'>
         <div className='flex items-center justify-center'>
             <div className='card'>
                 <h1 className='flex h1 items-center justify-center'>Goon</h1>
@@ -53,7 +62,11 @@ const Button = () => {
                 </div>
             </div>
         </div>
+        <button className='absolute top-2 right-14 bg-stone-800 text-white p-2 px-4 m-2 rounded-md
+        dark:bg-stone-100 dark:text-stone-800 font-bold'
+        onClick={handlenav}>Login</button>
     </div>
+    </>
   )
 }
 
