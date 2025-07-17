@@ -20,6 +20,12 @@ module.exports = {
         gglight: '#fcedea',
         gglight2: '#fcdcd9',
         ggdark: '#df4a32',
+        bone: '#ffffcc',
+        bl: '#ccccff'
+      },
+      fontFamily: {
+        dmserif: ['"DM Serif Text"', 'serif'],
+        geist: ['"Geist"', 'sans'],
       },
     },
   },

@@ -65,7 +65,7 @@ const Login = () => {
     <div className="flex items-center justify-center min-h-[700px]">
       <div className="bg-white dark:bg-stone-800 dark:border-2 dark:border-stone-600 
       p-8 pb-1 rounded shadow w-80">
-        <h2 className="text-2xl dark:text-white font-bold mb-8 text-left">Login</h2>
+        <h2 className="text-2xl dark:text-white font-geist font-extralight mb-6 text-left">Login</h2>
         <form onSubmit={onSubmit} className="flex relative flex-col gap-4">
           <input
             type="email"
