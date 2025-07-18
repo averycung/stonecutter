@@ -1,9 +1,7 @@
 const Quote = () => {
   return (
     <div className="absolute left-2 -top-16 ">
-      <a href="https://www.cbssports.com/nba/news/nba-finals-a-rock-hammer-and-cracking-of-spurs-majesty-in-game-7/" 
-      target="_blank" rel='noreferrer'>
-        <div className="border-4 border-black  bg-white 
+      <div className="border-4 border-stone-700  bg-white 
         dark:bg-yellow-100 shadow-2xl p-4 max-w-96 mx-5 transition-all ease-linear duration-500">
           <div className='border dark:border-blue-300'>
             <span className="block text-left text-sm font-dmserif p-2 text-black">
@@ -16,8 +14,7 @@ const Quote = () => {
             <span className="block font-dmserif text-black pb-2 text-xs pr-2 text-right">Jacob Riis</span>
           </div>
         </div>
-      </a>
-    </div>
+      </div>
   )
 }
 
