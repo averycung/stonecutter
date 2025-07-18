@@ -25,12 +25,15 @@ const Signup = () => {
       catch (err) {
             if(err.message === 'Firebase: Error (auth/invalid-credential).'){
                 setError('Invalid credentials');
+                setIsSigningUp(false)
             }
             else if (err.message === 'Firebase: Error (auth/email-already-in-use).'){
-                setError('Email already in use')
+                setError('Email already in use');
+                setIsSigningUp(false)
             }
             else {
-              setError(err.message)
+              setError(err.message);
+              setIsSigningUp(false)
             }
       }
     }

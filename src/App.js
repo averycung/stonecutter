@@ -1,8 +1,7 @@
-import Header from './components/Header';
 import Button from './components/Button';
-import Landing from './components/Landing';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import Reset from './components/Reset';
 import { useDarkMode } from './components/ThemeProvider';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
@@ -17,6 +16,7 @@ function App() {
         <Route path="/" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/dashboard" element={<Button />}></Route>
+        <Route path="/reset" element={<Reset />}></Route>
       </Routes>
     </div>
   )

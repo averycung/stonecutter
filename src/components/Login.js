@@ -25,9 +25,11 @@ const Login = () => {
       catch (err) {
             if(err.message === 'Firebase: Error (auth/invalid-credential).'){
                 setError('Invalid credentials');
+                setIsSigningIn(false)
             }
             else{
                 setError(err.message)
+                setIsSigningIn(false)
             }
       }
     }
@@ -40,6 +42,10 @@ const Login = () => {
 
     const handleNavSignup = () =>{
       navigate('/signup')
+    }
+
+    const handleNavReset = () =>{
+      navigate('/reset')
     }
 
     const onGoogleSignIn = (e) => {
@@ -96,7 +102,7 @@ const Login = () => {
             </button>
           </div>
           {error && <div className="text-red-500 text-sm">{error}</div>}
-          <button className='text-right text-xs mt-0 text-gray-500' onClick={resetPassword}>Forgot password?</button>
+          <button className='text-right text-xs mt-0 text-gray-500' onClick={handleNavReset}>Forgot password?</button>
           <button
             type="submit"
             className="bg-stone-700 dark:bg-stone-600 text-white py-2 rounded 

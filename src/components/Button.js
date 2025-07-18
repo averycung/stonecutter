@@ -44,7 +44,7 @@ const Button = () => {
     <>
     <Header />
     <div className='my-28'>
-        <h1 className='text-center h1'>Hi {currentUser.displayName ? currentUser.displayName : currentUser.email}</h1>
+        <h1 className='text-center dark:text-white h1'>Hi {currentUser.displayName ? currentUser.displayName : currentUser.email}</h1>
         <div className='flex items-center justify-center'>
             <div className='card'>
                 <h1 className='flex h1 items-center justify-center'>Goon</h1>
