@@ -1,3 +1,4 @@
+import { EmailAuthCredential } from "firebase/auth/web-extension";
 import {auth} from "./firebaseConfig"
 import { createUserWithEmailAndPassword, signInWithPopup, sendEmailVerification, signInWithEmailAndPassword, GoogleAuthProvider, sendPasswordResetEmail, updatePassword } from "firebase/auth"
 
@@ -20,6 +21,15 @@ export const loginGoogle = async () => {
 export const doSignOut = () => {
     return auth.signOut();
 };
+
+export const resetPassword = async (email) => {
+    try{
+        await sendPasswordResetEmail(auth, email);
+        alert('Email sent')
+    } catch (error) {
+        alert('Failed to send email')
+    }
+}
 
 export const doPasswordReset = (email) => {
     return sendPasswordResetEmail(auth, email);

@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Navigate, useNavigate, Link } from 'react-router-dom'
-import { login, loginGoogle } from '../firebase/auth'
+import { signup, loginGoogle } from '../firebase/auth'
 import { useAuth } from '../contexts/authContext'
 import { IoLogoGoogle } from 'react-icons/io'
 import { EyeClosed, Eye } from 'lucide-react'
@@ -11,23 +11,26 @@ const Signup = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [isSigningIn, setIsSigningIn] = useState(false)
+    const [isSigningUp, setIsSigningUp] = useState(false)
     const [error, setError] = useState('')
     
     const onSubmit = async (e) => {
       try{
         e.preventDefault()
-        if(!isSigningIn) {
-            setIsSigningIn(true)
-            await login(email, password)
+        if(!isSigningUp) {
+            setIsSigningUp(true)
+            await signup(email, password)
         }
       }
       catch (err) {
             if(err.message === 'Firebase: Error (auth/invalid-credential).'){
                 setError('Invalid credentials');
             }
-            else{
-                setError(err.message)
+            else if (err.message === 'Firebase: Error (auth/email-already-in-use).'){
+                setError('Email already in use')
+            }
+            else {
+              setError(err.message)
             }
       }
     }
@@ -35,22 +38,28 @@ const Signup = () => {
     const navigate = useNavigate()
 
     const handleNavGoon = () =>{
-      navigate('/goon')
+      navigate('/dashboard')
     }
 
     const handleNavLogin = () =>{
       navigate('/')
     }
 
-    const onGoogleSignIn = (e) => {
-        e.preventDefault()
-        if(!isSigningIn){
-            setIsSigningIn(true)
-            loginGoogle.catch(err => {
-                setIsSigningIn(false)
-            })
-        }
-    }
+    const onGoogleSignUp = (e) => {
+            e.preventDefault()
+            if(!isSigningUp){
+                setIsSigningUp(true)
+                loginGoogle().catch(err => {
+                    setIsSigningUp(false)
+                })
+            }
+        } 
+    
+    useEffect(()=>{
+      if (userLoggedIn){
+        navigate('/dashboard')
+      }
+    }, [userLoggedIn]);
 
     const [show, setShow] = useState(false)
 
@@ -103,10 +112,10 @@ const Signup = () => {
             <div className="flex-grow border-t border-gray-300"></div>
         </div>
         <div className='flex items-center justify-center'>
-          <button onClick={handleNavGoon}
+          <button onClick={onGoogleSignUp}
               className="bg-gglight flex items-center gap-2 w-full justify-center p-6
                py-2 text-ggdark rounded hover:bg-gglight2 dark:bg-ggdark 
-               dark:text-gglight transition-all ease-linear duartion-500">
+               dark:text-gglight transition-all ease-linear duration-500">
               <IoLogoGoogle size="20"/> Sign up with Google
           </button>
         </div>

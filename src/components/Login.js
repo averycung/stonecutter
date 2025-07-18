@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Navigate, useNavigate, Link } from 'react-router-dom'
-import { login, loginGoogle } from '../firebase/auth'
+import { login, loginGoogle, resetPassword } from '../firebase/auth'
 import { useAuth } from '../contexts/authContext'
 import { IoLogoGoogle } from 'react-icons/io'
 import { EyeClosed, Eye } from 'lucide-react'
@@ -35,7 +35,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     const handleNavGoon = () =>{
-      navigate('/goon')
+      navigate('/dashboard')
     }
 
     const handleNavSignup = () =>{
@@ -46,17 +46,23 @@ const Login = () => {
         e.preventDefault()
         if(!isSigningIn){
             setIsSigningIn(true)
-            loginGoogle.catch(err => {
+            loginGoogle().catch(err => {
                 setIsSigningIn(false)
             })
         }
-    }
+    } 
 
     const [show, setShow] = useState(false)
 
     const showPass = () =>{
       setShow(!show)
     }
+
+    useEffect(() => {
+      if (userLoggedIn){
+        navigate('/dashboard')
+      }
+    }, [userLoggedIn]);
 
 
     return (
@@ -90,7 +96,7 @@ const Login = () => {
             </button>
           </div>
           {error && <div className="text-red-500 text-sm">{error}</div>}
-          <button className='text-right text-xs mt-0 text-gray-500'>Forgot password?</button>
+          <button className='text-right text-xs mt-0 text-gray-500' onClick={resetPassword}>Forgot password?</button>
           <button
             type="submit"
             className="bg-stone-700 dark:bg-stone-600 text-white py-2 rounded 
@@ -105,10 +111,10 @@ const Login = () => {
         <div className="flex-grow border-t border-gray-300"></div>
         </div>
         <div className='flex items-center justify-center'>
-          <button onClick={handleNavGoon}
+          <button onClick={onGoogleSignIn}
               className="bg-gglight flex items-center gap-2 w-full justify-center p-6
                py-2 text-ggdark rounded hover:bg-gglight2 dark:bg-ggdark dark:text-gglight 
-               transition-all ease-linear duartion-500">
+               transition-all ease-linear duration-500">
               <IoLogoGoogle size="20"/> Login with Google
           </button>
         </div>
