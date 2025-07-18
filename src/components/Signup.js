@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Navigate, useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { signup, loginGoogle } from '../firebase/auth'
 import { useAuth } from '../contexts/authContext'
 import { IoLogoGoogle } from 'react-icons/io'
@@ -39,10 +39,6 @@ const Signup = () => {
     }
 
     const navigate = useNavigate()
-
-    const handleNavGoon = () =>{
-      navigate('/dashboard')
-    }
 
     const handleNavLogin = () =>{
       navigate('/')
@@ -104,7 +100,7 @@ const Signup = () => {
           {error && <div className="text-red-500 text-sm">{error}</div>}
           <button
             type="submit"
-            className="bg-stone-700 dark:bg-stone-600 text-white py-2 rounded 
+            className="font-geist font-extralight bg-stone-700 dark:bg-stone-600 text-white py-2 rounded 
             hover:bg-stone-900 hover:dark:bg-stone-200 transition-all ease-linear duration-500">
             Sign up
           </button>
@@ -116,14 +112,14 @@ const Signup = () => {
         </div>
         <div className='flex items-center justify-center'>
           <button onClick={onGoogleSignUp}
-              className="bg-gglight flex items-center gap-2 w-full justify-center p-6
+              className="font-geist font-extralight bg-gglight flex items-center gap-2 w-full justify-center p-6
                py-2 text-ggdark rounded hover:bg-gglight2 dark:bg-ggdark 
                dark:text-gglight transition-all ease-linear duration-500">
               <IoLogoGoogle size="20"/> Sign up with Google
           </button>
         </div>
         <div className='flex items-center justify-center'>
-          <button className='text-right underline text-gray-500 p-1 mt-4 mb-2'
+          <button className='font-geist font-extralight text-right underline text-gray-500 p-1 mt-4 mb-2'
           onClick={handleNavLogin}>Have an account? Log in</button>
         </div>
       </div>

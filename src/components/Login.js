@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Navigate, useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { login, loginGoogle, resetPassword } from '../firebase/auth'
 import { useAuth } from '../contexts/authContext'
 import { IoLogoGoogle } from 'react-icons/io'
@@ -35,10 +35,6 @@ const Login = () => {
     }
 
     const navigate = useNavigate()
-
-    const handleNavGoon = () =>{
-      navigate('/dashboard')
-    }
 
     const handleNavSignup = () =>{
       navigate('/signup')
@@ -102,11 +98,11 @@ const Login = () => {
             </button>
           </div>
           {error && <div className="text-red-500 text-sm">{error}</div>}
-          <button type="button" className='text-right text-xs mt-0 text-gray-500' 
+          <button type="button" className='font-geist font-extralight text-right text-xs mt-0 text-gray-500' 
           onClick={handleNavReset}>Forgot password?</button>
           <button
             type="submit"
-            className="bg-stone-700 dark:bg-stone-600 text-white py-2 rounded 
+            className="font-geist font-extralight bg-stone-700 dark:bg-stone-600 text-white py-2 rounded 
             hover:bg-stone-900 hover:dark:bg-stone-200 transition-all ease-linear duration-500">
             Login
           </button>
@@ -118,14 +114,14 @@ const Login = () => {
         </div>
         <div className='flex items-center justify-center'>
           <button onClick={onGoogleSignIn}
-            className="bg-gglight flex items-center gap-2 w-full justify-center p-6
+            className="bg-gglight font-geist font-extralight flex items-center gap-2 w-full justify-center p-6
               py-2 text-ggdark rounded hover:bg-gglight2 dark:bg-ggdark dark:text-gglight 
               transition-all ease-linear duration-500">
             <IoLogoGoogle size="20"/> Login with Google
           </button>
         </div>
         <div className='flex items-center justify-center'>
-          <button className='text-right underline text-gray-500 p-1 mt-4 mb-2'
+          <button className='text-right font-geist font-extralight underline text-gray-500 p-1 mt-4 mb-2'
           onClick={handleNavSignup}>Don't have an account? Sign up</button>
         </div>
       </div>

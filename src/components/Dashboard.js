@@ -44,9 +44,11 @@ const Dashboard = () => {
   return (
     <>
     <Header />
-    <div className='my-28 relative'>
+    <div className='my-20 relative'>
         <Quote />
-        <h1 className='text-center font-geist font-extralight dark:text-white h1'>Hi {currentUser.displayName ? currentUser.displayName : currentUser.email}</h1>
+        <h1 className='text-center font-geist mb-10 font-extralight dark:text-white h1'>
+            Hi {currentUser.displayName ? currentUser.displayName : currentUser.email}
+        </h1>
         <div className='flex items-center justify-center'>
             <div className='card'>
                 <h1 className='flex h1 items-center justify-center'>Goon</h1>

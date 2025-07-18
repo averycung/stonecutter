@@ -33,12 +33,12 @@ const handlenav = () => {
     <>
       <Header />
       <div className='flex items-center justify-center min-h-screen'>
-        <div className="bg-white dark:bg-stone-800 dark:border-2 dark:border-stone-600 
+        <div className="bg-white dark:bg-stone-800 top-10 dark:border-2 dark:border-stone-600 
           p-1  rounded shadow w-80">
-          <h1 className='p-2 ml-0 m-2 font-geist font-extralight text-lg'>Reset password</h1>
+          <h1 className='p-2 ml-0 m-2 dark:text-stone-100 font-geist font-extralight text-lg'>Reset password</h1>
           <form onSubmit={handlereset}>
             <input
-            className='w-full p-2 mb-4 border rounded'
+            className='w-[90%] p-2 ml-1 mr-1 mb-4 border rounded'
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
