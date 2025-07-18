@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import Header from './Header'
+import Quote from './Quote'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/authContext'
 
-const Button = () => {
+const Dashboard = () => {
 
     const {currentUser} = useAuth()
 
@@ -43,8 +44,9 @@ const Button = () => {
   return (
     <>
     <Header />
-    <div className='my-28'>
-        <h1 className='text-center dark:text-white h1'>Hi {currentUser.displayName ? currentUser.displayName : currentUser.email}</h1>
+    <div className='my-28 relative'>
+        <Quote />
+        <h1 className='text-center font-geist font-extralight dark:text-white h1'>Hi {currentUser.displayName ? currentUser.displayName : currentUser.email}</h1>
         <div className='flex items-center justify-center'>
             <div className='card'>
                 <h1 className='flex h1 items-center justify-center'>Goon</h1>
@@ -66,9 +68,6 @@ const Button = () => {
                 </div>
             </div>
         </div>
-        <button className='absolute top-2 right-14 bg-stone-800 text-white p-2 px-4 m-2 rounded-md
-        dark:bg-stone-100 dark:text-stone-800 font-bold'
-        onClick={handlenav}>Login</button>
     </div>
     </>
   )
@@ -108,4 +107,4 @@ function Shower({count, aClick, sClick, reset}) {
 }
 
 
-export default Button
+export default Dashboard

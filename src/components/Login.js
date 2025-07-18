@@ -102,12 +102,12 @@ const Login = () => {
             </button>
           </div>
           {error && <div className="text-red-500 text-sm">{error}</div>}
-          <button className='text-right text-xs mt-0 text-gray-500' onClick={handleNavReset}>Forgot password?</button>
+          <button type="button" className='text-right text-xs mt-0 text-gray-500' 
+          onClick={handleNavReset}>Forgot password?</button>
           <button
             type="submit"
             className="bg-stone-700 dark:bg-stone-600 text-white py-2 rounded 
-            hover:bg-stone-900 hover:dark:bg-stone-200 transition-all ease-linear duration-500"
-          >
+            hover:bg-stone-900 hover:dark:bg-stone-200 transition-all ease-linear duration-500">
             Login
           </button>
         </form>
@@ -118,10 +118,10 @@ const Login = () => {
         </div>
         <div className='flex items-center justify-center'>
           <button onClick={onGoogleSignIn}
-              className="bg-gglight flex items-center gap-2 w-full justify-center p-6
-               py-2 text-ggdark rounded hover:bg-gglight2 dark:bg-ggdark dark:text-gglight 
-               transition-all ease-linear duration-500">
-              <IoLogoGoogle size="20"/> Login with Google
+            className="bg-gglight flex items-center gap-2 w-full justify-center p-6
+              py-2 text-ggdark rounded hover:bg-gglight2 dark:bg-ggdark dark:text-gglight 
+              transition-all ease-linear duration-500">
+            <IoLogoGoogle size="20"/> Login with Google
           </button>
         </div>
         <div className='flex items-center justify-center'>

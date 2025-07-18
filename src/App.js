@@ -1,4 +1,4 @@
-import Button from './components/Button';
+import Dashboard from './components/Dashboard';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Reset from './components/Reset';
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/dashboard" element={<Button />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/reset" element={<Reset />}></Route>
       </Routes>
     </div>

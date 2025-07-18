@@ -33,12 +33,10 @@ const Header = () => {
         <button onClick={toggleDarkMode} className='fixed top-3 right-3 rounded-md text-xl 
         text-stone-800 dark:text-white font-bold  px-2 py-2 hover:rounded-xl  transition-all 
         duration-500'>{darkMode ? <Sun/>:<Moon/>}</button>
-        <h1 className='text-stone-800 dark:text-white font-dmserif font-bold m-4 p-2  text-5xl transtion-all ease-linear duration-500'>Stonecutter</h1>
-        <button className='absolute top-2 right-40 bg-stone-800 text-white p-2 px-4 m-2 rounded-md
-        dark:bg-stone-100 dark:text-stone-800 font-bold'
-        onClick={handlenav}>Goon</button>
-        {userLoggedIn && <button className='absolute top-2 right-72 bg-stone-800 text-white p-2 px-4 m-2 rounded-md
-        dark:bg-stone-100 dark:text-stone-800 font-bold'
+        <h1 className='text-stone-800 dark:text-white font-dmserif 
+        font-bold m-4 p-2  text-5xl transtion-all ease-linear duration-500'>Stonecutter</h1>
+        {userLoggedIn && <button className='absolute top-1 right-14 bg-stone-800 text-white 
+        p-2 px-4 m-2 rounded-md dark:bg-stone-100 dark:text-stone-800 font-bold'
         onClick={handlesignout}>Sign Out</button>}
       </div>
   )
