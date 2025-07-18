@@ -4,24 +4,36 @@ const Calendar = () => {
 
     let currentDate = new Date()
 
-    const currentMonth = currentDate.getMonth()
-
     const currentDay = currentDate.getDate()
 
     const currentDayIndex = currentDate.getDay()
 
     const updateCalendar = () => {
-        const currentYear = date.getFullYear()
-        const currentMonth = date.getMonth()
+        const currentYear = currentDate.getFullYear()
+        const currentMonth = currentDate.getMonth()
 
         const firstDay = new Date(currentYear, currentMonth, 1)
         const lastDay = new Date(currentYear, currentMonth + 1, 0)
 
+        const lastDayDate = lastDay.getDate()
+
         const firstDayIndex = firstDay.getDay()
         const lastDayIndex = lastDay.getDay()
 
+        let datesHTML = ''
+
         for (let i = firstDayIndex; i >= 0; i--){
-            
+            const prevDate = new Date(currentYear, currentMonth, 0 - i + 1)
+            datesHTML += `<button>${prevDate.getDate()}</button>`
+        }
+
+        for (let i = 1; i <= lastDayDate; i++){
+            datesHTML += `<button>${i}</button>`
+        }
+
+        for (let i = 1; i <= 7 - lastDayIndex; i++){
+            const nextDate = new Date(currentYear, currentMonth + 1, i)
+            datesHTML += `<button>${nextDate.getDate()}</button>`
         }
     }
 
@@ -47,8 +59,7 @@ const Calendar = () => {
                 <div className='day'>Sat</div>
             </div>
             <div>
-                current Date:{currentDay} 
-                current Day: {currentDayIndex}
+                {datesHTML}
             </div>
         </div>
     </div>
