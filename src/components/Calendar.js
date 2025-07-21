@@ -59,7 +59,7 @@ const Calendar = () => {
                 <div className='day'>Sat</div>
             </div>
             <div>
-                {datesHTML}
+                
             </div>
         </div>
     </div>
