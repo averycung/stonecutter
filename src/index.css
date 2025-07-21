@@ -30,7 +30,7 @@
      }
 
      .calendar {
-        @apply border dark:bg-yellow-100 shadow-md flex flex-col max-w-md w-full justify-center transition-all duration-500 ease-linear
+        @apply border dark:border-4 dark:border-stone-700 dark:bg-stone-200 shadow-md flex flex-col max-w-md w-full justify-center transition-all duration-500 ease-linear
      }
    }
 

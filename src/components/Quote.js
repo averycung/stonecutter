@@ -2,8 +2,8 @@ const Quote = () => {
   return (
     <div className="absolute left-2 -top-16 ">
       <div className="border-4 border-stone-700  bg-white 
-        dark:bg-yellow-100 shadow-2xl p-4 max-w-96 mx-5 transition-all ease-linear duration-500">
-          <div className='border dark:border-blue-300'>
+        dark:bg-stone-200 shadow-2xl p-4 max-w-96 mx-5 transition-all ease-linear duration-500">
+          <div className='border dark:border-stone-300'>
             <span className="block text-left text-sm font-dmserif p-2 text-black">
                 “ When nothing seems to help, I go and look at a stonecutter
                 hammering away at his rock, perhaps a hundred times without as
