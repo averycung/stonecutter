@@ -32,8 +32,8 @@ const handlenav = () => {
   return (
     <>
       <Header />
-      <div className='flex items-center justify-center min-h-screen'>
-        <div className="bg-white dark:bg-stone-800 top-10 dark:border-2 dark:border-stone-600 
+      <div className='flex items-center justify-center my-[15%]'>
+        <div className="bg-white top-10 dark:bg-stone-800 dark:border-2 dark:border-stone-600 
           p-1  rounded shadow w-80">
           <h1 className='p-2 ml-0 m-2 dark:text-stone-100 font-geist font-extralight text-lg'>Reset password</h1>
           <form onSubmit={handlereset}>
@@ -47,7 +47,7 @@ const handlenav = () => {
           </form>
           {error && <div className="text-red-500 text-sm">{error}</div>}
           <button className='bg-stone-800 text-white p-2 px-4 mb-2 ml-1 rounded-md
-        dark:bg-stone-100 dark:text-stone-800 font-bold font-geist'
+        dark:bg-stone-100 dark:text-stone-800 font-geist font-extralight transition-all ease-linear duration-500'
         onClick={handlenav}>Back to login</button>
         </div>
       </div>

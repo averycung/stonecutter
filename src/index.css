@@ -26,11 +26,11 @@
      }
 
      .day {
-        @apply text-center font-geist font-extralight
+        @apply text-center font-geist font-extralight dark:text-stone-100
      }
 
      .calendar {
-        @apply border dark:border-4 dark:border-stone-700 dark:bg-stone-200 shadow-md flex flex-col max-w-md w-full justify-center transition-all duration-500 ease-linear
+        @apply border-2 dark:bg-stone-800 dark:border-2 dark:border-stone-600  shadow-md flex flex-col max-w-md w-full justify-center transition-all duration-500 ease-linear
      }
    }
 
