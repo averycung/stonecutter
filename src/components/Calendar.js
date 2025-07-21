@@ -83,7 +83,7 @@ const Calendar = () => {
             </div>
             <div className="grid grid-cols-7">
                 {calendarDays.map((day, idx) => (
-            <button key={idx} className={`py-3 rounded-md m-2 font-geist font-extralight text-center 
+            <button key={idx} className={`py-3 rounded-md m-2 font-geist font-extralight text-center transition-all ease-linear duration-200
                 ${day.isCurrent ? "text-black" : "text-gray-400"} 
                 ${day.selected ? "bg-stone-400" : "bg-stone-100"} `}
                 onClick={() => toggleDay(idx)}
