@@ -1,42 +1,66 @@
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useState } from "react";
 
 const Calendar = () => {
 
     let currentDate = new Date()
-
-    const currentDay = currentDate.getDate()
-
-    const currentDayIndex = currentDate.getDay()
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
 
     const updateCalendar = () => {
-        const currentYear = currentDate.getFullYear()
-        const currentMonth = currentDate.getMonth()
+        const firstDay = new Date(currentYear, currentMonth, 1);
+        const lastDay = new Date(currentYear, currentMonth + 1, 0);
 
-        const firstDay = new Date(currentYear, currentMonth, 1)
-        const lastDay = new Date(currentYear, currentMonth + 1, 0)
+        const lastDayDate = lastDay.getDate();
+        const firstDayIndex = firstDay.getDay();
+        const lastDayIndex = lastDay.getDay();
 
-        const lastDayDate = lastDay.getDate()
+        const dates = [];
 
-        const firstDayIndex = firstDay.getDay()
-        const lastDayIndex = lastDay.getDay()
-
-        let datesHTML = ''
-
-        for (let i = firstDayIndex; i >= 0; i--){
-            const prevDate = new Date(currentYear, currentMonth, 0 - i + 1)
-            datesHTML += `<button>${prevDate.getDate()}</button>`
+        for (let i = firstDayIndex; i > 0; i--) {
+            const prevDate = new Date(currentYear, currentMonth, -i + 1);
+            dates.push(
+            <button key={`prev-${i}`} className="text-gray-400 py-1">
+                {prevDate.getDate()}
+            </button>
+            );
         }
 
-        for (let i = 1; i <= lastDayDate; i++){
-            datesHTML += `<button>${i}</button>`
+        for (let i = 1; i <= lastDayDate; i++) {
+            dates.push(
+            <button key={`curr-${i}`} className="text-black py-1">
+                {i}
+            </button>
+            );
         }
 
-        for (let i = 1; i <= 7 - lastDayIndex; i++){
-            const nextDate = new Date(currentYear, currentMonth + 1, i)
-            datesHTML += `<button>${nextDate.getDate()}</button>`
+        for (let i = 1; i <= 6 - lastDayIndex; i++) {
+            const nextDate = new Date(currentYear, currentMonth + 1, i);
+            dates.push(
+            <button key={`next-${i}`} className="text-gray-400 py-1">
+                {nextDate.getDate()}
+            </button>
+            );
         }
+
+        return dates;
+        };
+
+    const [calendar, setCalendar] = useState(updateCalendar())
+
+    const moveForward = () => {
+        currentDate = new Date(currentYear, currentMonth + 1)
+        currentYear = currentDate.getFullYear();
+        currentMonth = currentDate.getMonth();
+        setCalendar(updateCalendar())
     }
 
+    const moveBackward = () => {
+        currentDate = new Date(currentYear, currentMonth - 1)
+        currentYear = currentDate.getFullYear();
+        currentMonth = currentDate.getMonth();
+        setCalendar(updateCalendar())
+    }
 
     const monthYearString = currentDate.toLocaleString
     ('default', {month: 'long', year: 'numeric'})
@@ -45,9 +69,9 @@ const Calendar = () => {
     <div className="flex justify-center max-w-screen">
         <div className='calendar'>
             <div className='border flex justify-between font-dmserif text-stone-800 text-xl p-2 m-2'>
-                <button className="border rounded-full p-1"><ChevronLeft /></button> 
+                <button onclick={moveBackward} className="border rounded-full p-1"><ChevronLeft /></button> 
                 <div className="pt-1">{monthYearString}</div> 
-                <button className="border rounded-full p-1"><ChevronRight/></button>
+                <button onclick={moveForward} className="border rounded-full p-1"><ChevronRight/></button>
             </div>
             <div className='grid grid-cols-7'>
                 <div className='day'>Sun</div>
@@ -58,8 +82,8 @@ const Calendar = () => {
                 <div className='day'>Fri</div>
                 <div className='day'>Sat</div>
             </div>
-            <div>
-                
+            <div className="grid grid-cols-7">
+                {calendar}
             </div>
         </div>
     </div>
