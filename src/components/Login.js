@@ -83,7 +83,7 @@ const Login = () => {
     return (
       <>
     <Header/>
-    <div className="flex items-center justify-center min-h-[700px]">
+    <div className="flex items-center justify-center min-h-[85vh]">
       <div className="bg-white dark:bg-stone-800 dark:border-2 dark:border-stone-600 
       p-8 pb-1 rounded shadow w-80">
         <h2 className="text-2xl dark:text-white font-geist font-extralight mb-6 text-left">Login</h2>
@@ -111,7 +111,8 @@ const Login = () => {
             </button>
           </div>
           {error && <div className="text-red-500 text-sm">{error}</div>}
-          <button type="button" className='font-geist font-extralight text-right text-xs mt-0 text-gray-500' 
+          <button type="button" className='font-geist font-extralight text-right text-xs mt-0
+          dark:text-stone-400 text-gray-500' 
           onClick={handleNavReset}>Forgot password?</button>
           <button
             type="submit"
@@ -142,10 +143,15 @@ const Login = () => {
           </button>
         </div>
         <div className='flex items-center justify-center'>
-          <button className='text-right font-geist font-extralight underline text-gray-500 p-1 mt-2 mb-2'
+          <button className='text-right font-geist font-extralight underline text-gray-500 
+          dark:text-stone-400 p-1 mt-2 mb-2'
           onClick={handleNavSignup}>Don't have an account? Sign up</button>
         </div>
       </div>
+    </div>
+    <div className='text-center font-geist font-extralight text-stone-800 dark:text-stone-400'>
+      We're <a href="https://github.com/averycung/stonecutter"
+      target="_blank" className='underline font-normal'>open source</a>
     </div>
     </>
     )
