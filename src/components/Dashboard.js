@@ -13,7 +13,7 @@ const Dashboard = () => {
         <div className='my-20 relative'>
             <Quote />
             <h1 className='text-center font-geist mb-10 font-extralight dark:text-stone-300 h1'>
-                Hi {currentUser.displayName ? currentUser.displayName : currentUser.email}
+            {currentUser.displayName ? currentUser.displayName : currentUser.email ? currentUser.email : ""}
             </h1>
             <Calendar />
         </div>

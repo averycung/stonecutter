@@ -17,6 +17,9 @@ module.exports = {
       colors: {
         bg: '#f5f5f4',
         bgdark: '#1c1917',
+        anon: '#eaedfc',
+        anon2: '#d9dcfc',
+        anondark: '#324adf',
         gglight: '#fcedea',
         gglight2: '#fcdcd9',
         ggdark: '#df4a32',

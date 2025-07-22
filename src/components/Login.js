@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
-import { login, loginGoogle, resetPassword } from '../firebase/auth'
+import { login, loginGoogle, loginAnon } from '../firebase/auth'
 import { useAuth } from '../contexts/authContext'
 import { IoLogoGoogle } from 'react-icons/io'
+import { BsIncognito } from 'react-icons/bs'
 import { EyeClosed, Eye } from 'lucide-react'
 import Header from './Header'
 
@@ -34,6 +35,26 @@ const Login = () => {
       }
     }
 
+    const onGoogleSignIn = (e) => {
+        e.preventDefault()
+        if(!isSigningIn){
+            setIsSigningIn(true)
+            loginGoogle().catch(err => {
+                setIsSigningIn(false)
+            })
+        }
+    } 
+
+    const onAnonSignIn = (e) =>{
+      e.preventDefault()
+      if(!isSigningIn){
+        setIsSigningIn(true)
+        loginAnon().catch(err => {
+          setIsSigningIn(false)
+        })
+      }
+    }
+
     const navigate = useNavigate()
 
     const handleNavSignup = () =>{
@@ -44,15 +65,7 @@ const Login = () => {
       navigate('/reset')
     }
 
-    const onGoogleSignIn = (e) => {
-        e.preventDefault()
-        if(!isSigningIn){
-            setIsSigningIn(true)
-            loginGoogle().catch(err => {
-                setIsSigningIn(false)
-            })
-        }
-    } 
+    
 
     const [show, setShow] = useState(false)
 
@@ -102,8 +115,8 @@ const Login = () => {
           onClick={handleNavReset}>Forgot password?</button>
           <button
             type="submit"
-            className="font-geist font-extralight bg-stone-700 dark:bg-stone-600 text-white py-2 rounded 
-            hover:bg-stone-900 hover:dark:bg-stone-200 transition-all ease-linear duration-500">
+            className="font-geist font-extralight bg-stone-700 dark:bg-stone-600 text-white py-2 
+            hover:bg-stone-900 hover:dark:bg-stone-700 rounded transition-all ease-linear duration-500">
             Login
           </button>
         </form>
@@ -116,12 +129,20 @@ const Login = () => {
           <button onClick={onGoogleSignIn}
             className="bg-gglight font-geist font-extralight flex items-center gap-2 w-full justify-center p-6
               py-2 text-ggdark rounded hover:bg-gglight2 dark:bg-ggdark dark:text-gglight 
-              transition-all ease-linear duration-500">
+              hover:dark:bg-red-700 transition-all ease-linear duration-500">
             <IoLogoGoogle size="20"/> Login with Google
           </button>
         </div>
+        <div className='flex items-center mt-4 justify-center'>
+          <button onClick={onAnonSignIn}
+            className="font-geist font-extralight flex items-center gap-2 w-full justify-center p-6
+              py-2 rounded bg-anon dark:bg-anondark dark:text-anon text-anondark hover:bg-anon2 
+              hover:dark:bg-blue-800 transition-all ease-linear duration-500">
+            <BsIncognito size="20"/> Login with no account
+          </button>
+        </div>
         <div className='flex items-center justify-center'>
-          <button className='text-right font-geist font-extralight underline text-gray-500 p-1 mt-4 mb-2'
+          <button className='text-right font-geist font-extralight underline text-gray-500 p-1 mt-2 mb-2'
           onClick={handleNavSignup}>Don't have an account? Sign up</button>
         </div>
       </div>

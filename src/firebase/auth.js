@@ -1,6 +1,5 @@
-import { EmailAuthCredential } from "firebase/auth/web-extension";
 import {auth} from "./firebaseConfig"
-import { createUserWithEmailAndPassword, signInWithPopup, sendEmailVerification, signInWithEmailAndPassword, GoogleAuthProvider, sendPasswordResetEmail, updatePassword } from "firebase/auth"
+import { createUserWithEmailAndPassword, signInWithPopup, sendEmailVerification, signInWithEmailAndPassword, GoogleAuthProvider, sendPasswordResetEmail, updatePassword, signInAnonymously } from "firebase/auth"
 
 
 export const signup = async (email, password) => {
@@ -10,6 +9,10 @@ export const signup = async (email, password) => {
 export const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
 };
+
+export const loginAnon = async () => {
+    return signInAnonymously(auth)
+}
 
 export const loginGoogle = async () => {
     const provider = new GoogleAuthProvider();
