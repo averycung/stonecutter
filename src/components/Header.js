@@ -29,16 +29,16 @@ const Header = () => {
 
   return (
       <div className="relative flex border-b p-2 mx-auto bg-white dark:bg-stone-800">
-        <button onClick={toggleDarkMode} className='absolute top-3 right-3 rounded-md text-sm 
+        <button onClick={toggleDarkMode} className='absolute top-8 right-3 rounded-md text-sm 
         text-stone-800 dark:text-white font-bold  px-2 py-2 hover:rounded-xl  transition-all 
         duration-500'>{darkMode ? <Sun/>:<Moon/>}</button>
         {userLoggedIn ? (<button onClick={handlenav} className='text-stone-800 dark:text-white 
-        font-dmserif font-bold m-4 p-2 text-3xl md:text-5xl transition-all ease-linear duration-500'>
+        font-dmserif font-bold m-4 p-2 text-4xl md:text-5xl transition-all ease-linear duration-500'>
         Stonecutter </button>) : (<h1 className='text-stone-800 dark:text-white font-dmserif 
-        font-bold m-4 p-2 text-3xl md:text-5xl transition-all ease-linear duration-500'>
+        font-bold m-4 p-2 text-4xl md:text-5xl transition-all ease-linear duration-500'>
         Stonecutter</h1>)}
         {userLoggedIn && (
-          <button className='absolute top-1 right-14 bg-stone-800 text-white 
+          <button className='absolute text-xs md:text-base top-7 md:top-6 right-14 bg-stone-800 text-white 
           p-2 px-4 m-2 rounded-md dark:bg-stone-100 dark:text-stone-800 font-extralight font-geist'
           onClick={handlesignout}>Sign Out</button>
         )}
