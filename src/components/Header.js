@@ -28,8 +28,8 @@ const Header = () => {
   }
 
   return (
-      <div className="flex border-b p-2 mx-auto bg-white dark:bg-stone-800">
-        <button onClick={toggleDarkMode} className='fixed top-3 right-3 rounded-md text-sm 
+      <div className="relative flex border-b p-2 mx-auto bg-white dark:bg-stone-800">
+        <button onClick={toggleDarkMode} className='absolute top-3 right-3 rounded-md text-sm 
         text-stone-800 dark:text-white font-bold  px-2 py-2 hover:rounded-xl  transition-all 
         duration-500'>{darkMode ? <Sun/>:<Moon/>}</button>
         {userLoggedIn ? <button onClick={handlenav}className='text-stone-800 dark:text-white font-dmserif 

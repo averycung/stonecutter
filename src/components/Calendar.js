@@ -101,37 +101,39 @@ const Calendar = () => {
     }, [header, currentUser]);
 
   return (
-    <div className="flex justify-center max-w-screen">
-        <div className='calendar'>
-            <div className='border dark:border-stone-600 flex justify-between font-dmserif text-stone-800 
-            text-xl p-2 m-2'>
-                <button onClick={() => moveMonth(-1)} className="border dark:text-stone-100 dark:border-stone-600 
-                rounded-full p-1"><ChevronLeft /></button> 
-                <div className="pt-1 dark:text-stone-100">{header}</div> 
-                <button onClick={() => moveMonth(1)} className="border dark:text-stone-100 dark:border-stone-600 
-                rounded-full p-1"><ChevronRight/></button>
-            </div>
-            <div className='grid grid-cols-7'>
-                <div className='day'>Sun</div>
-                <div className='day'>Mon</div>
-                <div className='day'>Tue</div>
-                <div className='day'>Wed</div>
-                <div className='day'>Thu</div>
-                <div className='day'>Fri</div>
-                <div className='day'>Sat</div>
-            </div>
-            <div className="grid grid-cols-7">
-                {calendarDays.map((day, idx) => (
-            <button key={idx} className={`py-3 rounded-md m-2 font-geist font-extralight text-center transition-all ease-linear duration-200
-                ${day.isCurrent ? "text-black dark:text-stone-100" : "text-gray-400"} 
-                ${day.selected ? "bg-green-400 dark:bg-green-700" : "bg-stone-100 dark:bg-stone-500"} `}
-                onClick={() => toggleDay(idx)}
+    <div className="flex justify-center w-full px-8">
+      <div className='calendar'>
+        <div className='border dark:border-stone-600 flex justify-between font-dmserif text-stone-800 
+        text-xl p-2 m-2'>
+          <button onClick={() => moveMonth(-1)} className="border dark:text-stone-100 dark:border-stone-600 
+          rounded-full p-1"><ChevronLeft /></button> 
+          <div className="pt-1 dark:text-stone-100">{header}</div> 
+          <button onClick={() => moveMonth(1)} className="border dark:text-stone-100 dark:border-stone-600 
+          rounded-full p-1"><ChevronRight/></button>
+        </div>
+        <div
+          className="
+            flex flex-row gap-2 py-2 w-full px-2
+            overflow-x-auto
+            md:overflow-x-visible
+          "
+        >
+          {calendarDays.map((day, idx) => (
+            <button
+              key={idx}
+              className={`
+                py-3 rounded-md font-geist font-extralight text-center transition-all ease-linear duration-200
+                ${day.isCurrent ? "text-black dark:text-stone-100" : "text-gray-400"}
+                ${day.selected ? "bg-green-400 dark:bg-green-700" : "bg-stone-100 dark:bg-stone-500"}
+                min-w-[48px] md:min-w-0 md:flex-1
+              `}
+              onClick={() => toggleDay(idx)}
             >
               {day.value}
             </button>
-            ))}
-            </div>
+          ))}
         </div>
+      </div>
     </div>
   )
 }
