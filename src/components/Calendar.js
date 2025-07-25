@@ -101,7 +101,7 @@ const Calendar = () => {
     }, [header, currentUser]);
 
   return (
-    <div className="flex justify-center w-full px-8">
+    <div className="flex justify-center w-full my-2 px-8">
       <div className='calendar'>
         <div className='border dark:border-stone-600 flex justify-between font-dmserif text-stone-800 
         text-xl p-2 m-2'>
