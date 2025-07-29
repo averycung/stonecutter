@@ -3,6 +3,7 @@ import { db } from "../firebase/firebaseConfig";
 import { doc, getDoc, setDoc, collection, addDoc, getDocs } from "firebase/firestore";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import Calendar from "./Calendar";
 
 const Cal = () => {
     const { currentUser } = useAuth();
@@ -81,9 +82,9 @@ const Cal = () => {
             </div>
             {/* Modal for naming new habit */}
             {showModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
+                <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
                     <div className="bg-white dark:bg-stone-800 p-6 rounded shadow">
-                        <h2 className="mb-2 font-geist">Name your new habit</h2>
+                        <h2 className="mb-2 font-geist text-white">Name your new habit</h2>
                         <input
                             type="text"
                             value={newHabitName}
@@ -113,10 +114,6 @@ const Cal = () => {
                 </div>
             )}
             {/* Calendar for selected habit */}
-            <div className='calendar w-full'>
-                {/* ...existing calendar header and grid... */}
-                {/* Use your existing calendar rendering code here */}
-            </div>
         </div>
     );
 };

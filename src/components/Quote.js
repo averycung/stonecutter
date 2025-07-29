@@ -4,7 +4,7 @@ const Quote = () => {
       <div className="
         border-4 border-stone-700 bg-white 
         dark:bg-stone-800 dark:border-4 dark:border-stone-600 shadow-xl
-        p-3 md:p-4 max-w-xs md:max-w-md mx-2
+        p-3 md:p-4 max-w- md:max-w-md mx-2
         transition-all ease-linear duration-500
       ">
         <div className='border dark:border-stone-600'>
