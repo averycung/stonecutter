@@ -10,7 +10,7 @@ const Dashboard = () => {
     return (
         <>
         <Header />
-        <div className='my-20 relative'>
+        <div className='my-6 relative'>
             <Quote />
             <div className='md:flex md:items-center md:justify-center'>
             <h1 className='md:absolute md:top-10 text-center font-geist mb-10 font-extralight dark:text-stone-300 h1'>
