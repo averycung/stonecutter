@@ -1,63 +1,65 @@
-import React, {useState} from 'react';
-import { useAuth } from '../contexts/authContext';
-import { auth } from '../firebase/firebaseConfig';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import React from 'react'
+import Header from './Header'
+import { useNavigate } from 'react-router-dom'
+import { loginAnon } from '../firebase/auth'
+import { useState, useEffect } from 'react'
+import { useAuth } from '../contexts/authContext'
 
 const Landing = () => {
 
-    const {userLoggedIn, currentUser} = useAuth()
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [error, setError] = useState("")
+  const { userLoggedIn } = useAuth()
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        setError("");
-        try {
-        await signInWithEmailAndPassword(auth, email, password);
-        } catch (err) {
-            if(err.message === 'Firebase: Error (auth/invalid-credential).'){
-                setError('Invalid credentials');
-            }
-            else{
-                setError(err.message)
-            }
+  const [isSigningIn, setIsSigningIn] = useState(false)
+
+  const navigate = useNavigate()
+
+  const handleNavSignup = () =>{
+    navigate('/signup')
+  }
+
+  const handleNavLogin = () =>{
+    navigate('/login')
+  }
+
+  const onAnonSignIn = (e) =>{
+        e.preventDefault()
+        if(!isSigningIn){
+          setIsSigningIn(true)
+          loginAnon().catch(err => {
+            setIsSigningIn(false)
+          })
         }
-    };
+      }
 
-  
+  useEffect(() => {
+        if (userLoggedIn){
+          navigate('/dashboard')
+        }
+      }, [userLoggedIn]);
+
   return (
-    <div className="flex items-center justify-center min-h-[700px]">
-      <div className="bg-white dark:bg-stone-800 dark:border-2 dark:border-stone-600 p-8 rounded shadow w-80">
-        <h2 className="text-2xl dark:text-white font-bold mb-4 text-center">Login</h2>
-        <form onSubmit={handleLogin} className="flex flex-col gap-4">
-          <input
-            type="email"
-            placeholder="Email"
-            className="p-2 rounded border"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="p-2 rounded border"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          {error && <div className="text-red-500 text-sm">{error}</div>}
-          <button
-            type="submit"
-            className="bg-stone-700 dark:bg-stone-100 dark:text-stone-800 text-white py-2 rounded hover:bg-stone-900 hover:dark:bg-stone-200"
-          >
-            Login
-          </button>
-        </form>
+    <>
+    <Header />
+    <div className='flex flex-col items-center justify-center'>
+      <div className='flex items-center justify-center mt-5 p-5'>
+        <span className='font-dmserif text-stone-800 dark:text-stone-100 
+        text-6xl font-bold'>
+          Habit Tracking Made Simple
+        </span>
       </div>
+      <div className='flex items-center justify-center mb-5'>
+        <span className='font-geist font-extralight text-stone-800 dark:text-stone-100 
+        text-lg'>
+          Struggling to stay consistent? Visualize your habits now
+        </span>
+      </div>
+        <button onClick={onAnonSignIn} className='max-w-sm p-2 m-2 bg-stone-800 
+        text-white font-dmserif rounded-md text-lg'>
+          ⚒️ Continue to dashboard
+        </button>
     </div>
-  );
+    </>
+  )
 }
 
 export default Landing

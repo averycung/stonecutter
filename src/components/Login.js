@@ -86,7 +86,8 @@ const Login = () => {
     <div className="flex items-center justify-center min-h-[85vh]">
       <div className="bg-white dark:bg-stone-800 dark:border-2 dark:border-stone-600 
       p-8 pb-1 rounded shadow w-80">
-        <h2 className="text-2xl dark:text-white font-geist font-extralight mb-6 text-left">Login</h2>
+        <h2 className="text-2xl dark:text-white mb-6 text-left font-dmserif
+        font-bold text-stone-800">Login</h2>
         <form onSubmit={onSubmit} className="flex relative flex-col gap-4">
           <input
             type="email"
@@ -116,7 +117,7 @@ const Login = () => {
           onClick={handleNavReset}>Forgot password?</button>
           <button
             type="submit"
-            className="font-geist font-extralight bg-stone-700 dark:bg-stone-600 text-white py-2 
+            className="font-geist font-extralight bg-stone-800 dark:bg-stone-600 text-white py-2 
             hover:bg-stone-900 hover:dark:bg-stone-700 rounded transition-all ease-linear duration-500">
             Login
           </button>

@@ -41,7 +41,7 @@ const Signup = () => {
     const navigate = useNavigate()
 
     const handleNavLogin = () =>{
-      navigate('/')
+      navigate('/login')
     }
 
     const onGoogleSignUp = (e) => {
@@ -73,7 +73,8 @@ const Signup = () => {
     <div className="flex items-center justify-center min-h-[700px]">
       <div className="bg-white dark:bg-stone-800 dark:border-2 dark:border-stone-600 
       p-8 pb-1 rounded shadow w-80">
-        <h2 className="text-2xl dark:text-white font-geist font-extralight  mb-6 text-left">Sign up</h2>
+        <h2 className="text-2xl dark:text-white mb-6 text-left font-dmserif
+        font-bold text-stone-800">Sign up</h2>
         <form onSubmit={onSubmit} className="flex relative flex-col gap-4">
           <input
             type="email"
@@ -100,7 +101,7 @@ const Signup = () => {
           {error && <div className="text-red-500 text-sm">{error}</div>}
           <button
             type="submit"
-            className="font-geist font-extralight bg-stone-700 dark:bg-stone-600 text-white py-2 rounded 
+            className="font-geist font-extralight bg-stone-800 dark:bg-stone-600 text-white py-2 rounded 
             hover:bg-stone-900 hover:dark:bg-stone-200 transition-all ease-linear duration-500">
             Sign up
           </button>
