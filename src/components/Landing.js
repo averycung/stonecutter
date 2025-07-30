@@ -54,7 +54,7 @@ const Landing = () => {
         </span>
       </div>
         <button onClick={onAnonSignIn} className='max-w-sm p-2 m-2 bg-stone-800 
-        text-white font-dmserif rounded-md text-lg'>
+        text-white font-dmserif rounded-md text-lg dark:bg-stone-100 dark:text-stone-800'>
           ⚒️ Continue to dashboard
         </button>
     </div>
