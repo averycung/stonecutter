@@ -223,7 +223,7 @@ const [habitIdToDelete, setHabitIdToDelete] = useState("")
         </button>
         <button
           onClick={() => setShowDeleteModal(true)}
-          className="bg-stone-100 dark:text-white border-2 dark:border-stone-600 mx-4 px-2 
+          className="bg-stone-100 dark:bg-stone-800 dark:text-white border-2 dark:border-stone-600 mx-4 px-2 
           py-1 my-2 shadow-lg font-geist font-extralight">
           - Delete habit
         </button>
