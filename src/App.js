@@ -3,23 +3,23 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Reset from './components/Reset';
 import { useDarkMode } from './components/ThemeProvider';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-
-  const {darkMode} = useDarkMode()
+  const { darkMode } = useDarkMode();
 
   return (
-    <div className={darkMode ? 'dark min-h-screen bg-stone-800' : 'light min-h-screen'}>
-      <Routes>
-        <Route path="/" element={<Login />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/dashboard" element={<Dashboard />}></Route>
-        <Route path="/reset" element={<Reset />}></Route>
-      </Routes>
+    <div className={darkMode ? 'dark' : ''}>
+      <div className="min-h-[100dvh] overflow-x-hidden bg-stone-100 dark:bg-stone-800">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/reset" element={<Reset />} />
+        </Routes>
+      </div>
     </div>
-  )
+  );
 }
 
 export default App;

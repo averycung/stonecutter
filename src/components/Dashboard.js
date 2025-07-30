@@ -1,7 +1,6 @@
 import Header from './Header'
 import Quote from './Quote'
 import Calendar from './Calendar'
-import Cal from './Cal'
 import { useAuth } from '../contexts/authContext'
 
 const Dashboard = () => {

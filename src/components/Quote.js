@@ -2,10 +2,9 @@ const Quote = () => {
   return (
     <div className="w-full flex justify-center md:justify-normal mt-2 mb-4 px-6">
       <div className="
-        border-4 border-stone-700 bg-white 
+        border-4 border-stone-700 bg-stone-100
         dark:bg-stone-800 dark:border-4 dark:border-stone-600 shadow-xl
         p-3 md:p-4 max-w- md:max-w-md mx-2
-        transition-all ease-linear duration-500
       ">
         <div className='border dark:border-stone-600'>
           <span className="
